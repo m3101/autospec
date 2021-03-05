@@ -31,7 +31,7 @@ Having that curve, we can filter signals so we're compensating for the frequenci
 
 That curve can be applied to any other signal. For my experiments, I had a high-fidelity headset and a bad microphone biased towards high frequencies.
 
-The compensation curve above was used to filter the initial 3 seconds of `rien.wav` (An excerpt from "Le chanson des vers de Terre", by Opa Tsupa)
+The compensation curve above was used to filter the initial 3 seconds of `rien.wav` (An excerpt from "La chanson des vers de Terre", by Opa Tsupa)
 
 Here are the spectrograms of the signal sent to the speaker (on the left, the original signal, followed by the filtered one):
 
