@@ -1,0 +1,4 @@
+# fft filter files
+*.filter
+# Numpy dumps
+*.npdump
