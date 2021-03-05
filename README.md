@@ -13,19 +13,19 @@ For generating a new filter curve (calibrating a new device), simply run the scr
 For processing a .wav file using that curve, run `python autospec.py <.wav file> <filter file>`. That'll play the original and processed audio on the default audio output.
 ## How it works
 
-The script tries to estimate the microphone's sensitivity to frequencies (assuming a high-fidelity speaker) or the speaker's fidelity to frequencies (assuming a high-fidelity microphone). For that, it emits white noise through the speaker records it with the microphone.
+The script tries to estimate the microphone's sensitivity to frequencies (assuming a high-fidelity speaker) or the speaker's fidelity on reproducing those frequencies (assuming a high-fidelity microphone). For that, it emits white noise through the speaker and records it with the microphone.
 
 The resulting recording is then analysed in the frequency domain using a Fourier Transform:
 
 ![before](img/Before.png)
 
-Ideally, this curve should be flat for white noise, so either our microphone isn't very sensitive to some frequencies or our speakers aren't emitting them correctly.
+Ideally, this curve should be flat for white noise, so for that curve to happen, either our microphone isn't very sensitive to some frequencies or our speakers aren't emitting them correctly.
 
-Correcting that is simple: the script generates a "compensation curve" which can be used to flatten that signal on the frequency domain (picture what we'd need to multiply to it so it looks flat):
+Correcting that is simple: the script generates a "compensation curve" which can be used to flatten that signal on the frequency domain by simply multiplying the two (correction = maximum(signal)/signal):
 
 ![compensation](img/Compensation.png)
 
-Having that curve, we can filter signals so we're compensating for the frequencies we can't emit/capture by simply multiplying this curve to them in the frequency domain and applying the inverse Fourier Transform.
+Having that curve, we now can filter signals so we're compensating for the frequencies we can't emit/capture by simply multiplying this curve to those signals in the frequency domain and applying the inverse Fourier Transform.
 
 ![after](img/After.png)
 
