@@ -45,4 +45,4 @@ It's visibly fuller and more distinct in the lower frequencies, which can be con
 
 ---
 
-Made with <3 by Amélia O. on a Friday afternoon I should have spent something more important on.
+Made with <3 by Amélia O. on a Friday afternoon I should have spent doing something more important on.
